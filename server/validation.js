@@ -1,5 +1,5 @@
 export function validateEmail(email) {
-    const re = /\S+@\S+\.\S+/;
+    const re = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     if (!email || !re.test(email)) return 'Введите корректный email';
     return null;
   }

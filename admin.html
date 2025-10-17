@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Админ-панель | Mallow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ap">
+    <header>
+        <a href="index.html" class="logo-link"><div class="logo">Mallow</div></a>
+        <h1>Админ-панель</h1>
+    </header>
+    <main class="admin-container">
+        <div class="admin-layout">
+            <section id="users-section" class="admin-column">
+                <h2>Пользователи</h2>
+                <form id="add-user-form" class="admin-form">
+                    <h3 id="user-form-title">Добавить пользователя</h3>
+                    <input type="text" id="user-name" placeholder="Имя" required>
+                    <input type="email" id="user-email" placeholder="Email" required>
+                    <input type="text" id="user-role" placeholder="Роль (user или admin)" required>
+                    <div id="password-field-container">
+                        <input type="password" id="user-password" placeholder="Пароль" required>
+                    </div>
+                    <button type="submit" class="btn btn-cocoa">Добавить пользователя</button>
+                </form>
+                <div id="users-table-container">
+                </div>
+            </section>
+            <section id="products-section" class="admin-column">
+                <h2>Товары</h2>
+                <form id="add-product-form" class="admin-form">
+                    <h3 id="product-form-title">Добавить новый товар</h3>
+                    <input type="text" id="product-name" placeholder="Название товара" required>
+                    <input type="number" id="product-price" placeholder="Цена" required>
+                    <input type="text" id="product-image" placeholder="URL картинки" required>
+                    <textarea id="product-description" placeholder="Описание товара" required></textarea>
+                    <h4>Детали</h4>
+                    <input type="text" id="product-material" placeholder="Материал" required>
+                    <input type="text" id="product-volume" placeholder="Объем/Размеры" required>
+                    <input type="text" id="product-care" placeholder="Уход" required>
+                    <button type="submit" class="btn btn-cocoa">Добавить товар</button>
+                </form>
+                <div id="products-table-container">
+                </div>
+            </section>
+        </div>
+    </main>
+    <script type="module" src="server/admin.js"></script>
+</body>
+</html>

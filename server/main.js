@@ -1,5 +1,5 @@
 import { validateForm } from './validation.js';
-import { loginUser, getCurrentUser, logoutUser } from './auth.js'; 
+import { loginUser, registerUser, getCurrentUser, logoutUser } from './auth.js';
 import { renderProductList } from './products.js';
 
 if (document.querySelector('.container')) {

@@ -1,0 +1,23 @@
+{
+  "name": "mallow",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cheis099/mallow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cheis099/mallow/issues"
+  },
+  "homepage": "https://github.com/Cheis099/mallow#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

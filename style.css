@@ -268,7 +268,7 @@ body.pl {
     background-image: url('https://bfdsyleyhyeuvxkzrlck.supabase.co/storage/v1/object/public/mallow/card.png');
     background-size: cover;
     background-position: center;
-    width: 295px;
+    width: 300px;
     padding: 12px;
     border-radius: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -480,4 +480,158 @@ body.pl {
 .btn-outline:hover {
     background-color: #E8C1C8;
     color: white;
+}
+
+.admin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.admin-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.admin-column {
+    flex: 1;
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.admin-column h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 2.5em;
+    color: #A17C6B;
+    text-align: center;
+    margin-top: 0;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.admin-form input,
+.admin-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E0D9D1;
+    border-radius: 12px;
+    background-color: #FDFBFA;
+    font-size: 15px;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+    outline: none;
+    border-color: #E8C1C8;
+    box-shadow: 0 0 0 3px rgba(232, 193, 200, 0.3);
+}
+
+.admin-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#users-table-container table,
+#products-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+#users-table-container th,
+#products-table-container th {
+    background-color: #FDFBFA;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #E0D9D1;
+}
+
+#users-table-container td,
+#products-table-container td {
+    padding: 12px;
+    border-bottom: 1px solid #E0D9D1;
+    vertical-align: middle;
+}
+
+#users-table-container tr:last-child td,
+#products-table-container tr:last-child td {
+    border-bottom: none;
+}
+
+#users-table-container button,
+#products-table-container button {
+    font-family: 'Nunito Sans', sans-serif;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-right: 5px;
+}
+
+#users-table-container button:hover,
+#products-table-container button:hover {
+    transform: translateY(-1px);
+}
+
+.edit-user-btn,
+.edit-product-btn {
+    background-color: #A17C6B;
+    color: white;
+}
+.edit-user-btn:hover,
+.edit-product-btn:hover {
+    background-color: #8a6a5a;
+}
+
+.delete-user-btn,
+.delete-product-btn {
+    background-color: #E8C1C8;
+    color: white;
+}
+.delete-user-btn:hover,
+.delete-product-btn:hover {
+    background-color: #d8aab1;
+}
+
+body.ap {
+    padding-top: 0;
+}
+
+body.ap header {
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: transparent;
+    border-bottom: 2px solid #E0D9D1;
+    margin-bottom: 40px;
+    width: auto;
+}
+
+body.ap .logo {
+    font-family: 'Caveat', cursive;
+}
+
+body.ap header h1 {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 600;
 }

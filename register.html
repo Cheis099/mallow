@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход | Mallow</title>
+    <title>Регистрация | Mallow</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,23 +15,26 @@
         <div class="title">
             Mallow
         </div>
-        <h1>С возвращением!</h1>
-        <form>
+        <h1>Новый аккаунт</h1>
+        <form id="register-form"> 
+            <div class="form">
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" placeholder="Имя" required>
+            </div>
             <div class="form">
                 <label for="email">Эл. почта</label>
-                <input type="email" id="email" placeholder="hello@example.com">
+                <input type="email" id="email" placeholder="hello@example.com" required>
             </div>
             <div class="form">
                 <label for="password">Пароль</label>
-                <input type="password" id="password" placeholder="••••••••">
+                <input type="password" id="password" placeholder="••••••••" required>
             </div>
-            <button type="submit" class="btn btn-pink">Войти</button>
+            <button type="submit" class="btn btn-pink">Зарегистрироваться</button>
         </form>
         <div class="links">
-            <a href="register.html">У меня еще нет аккаунта</a>
-            <a href="#">Забыли пароль?</a>
+            <a href="login.html">У меня уже есть аккаунт</a>
         </div>
     </div>
+    <script type="module" src="server/main.js"></script>
 </body>
-<script type="module" src="server/main.js"></script>
 </html>

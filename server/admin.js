@@ -25,8 +25,11 @@ function renderUsersTable() {
                 <td>${user.id}</td>
                 <td>${user.name}</td>
                 <td>${user.email}</td>
-                <td><button class="delete-user-btn" data-id="${user.id}">Удалить</button></td>
-            </tr>`;
+                <td>
+                    <button class="edit-user-btn" data-id="${user.id}">Редактировать</button>
+                    <button class="delete-user-btn" data-id="${user.id}">Удалить</button>
+                </td>
+            </tr> `;
     });
     html += `</tbody></table>`;
     usersTableContainer.innerHTML = html;

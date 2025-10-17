@@ -1,20 +1,22 @@
-import { users } from './mockDB.js';
-
-export function loginUser(email, password) {
-  const user = users.find(u => u.email === email && u.password === password);
-  if (user) {
-    return { success: true, user };
+export async function loginUser(email, password) {
+  const url = "/api/data";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Ошибка от сервера: ${response.status}`);
+    }
+    const data = await response.json();
+    const users = data.users;
+    const user = users.find(u => u.email === email && u.password === password);
+    if (user) {
+      return { success: true, user };
+    } else {
+      return { success: false, error: 'Неверный email или пароль' };
+    }
+  } catch (error) {
+    console.error(error);
+    return { success: false, error: 'Произошла ошибка, попробуйте снова' };
   }
-  return { success: false, error: 'Неверный email или пароль' };
-}
-
-export function registerUser(email, password, name) {
-  if (users.find(u => u.email === email)) {
-    return { success: false, error: 'Пользователь с таким email уже существует' };
-  }
-  const newUser = { id: users.length + 1, email, password, name };
-  users.push(newUser);
-  return { success: true, user: newUser };
 }
 
 export function logoutUser() {

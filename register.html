@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | Mallow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+</head>
+<body class="pl">
+    <div class="container">
+        <div class="title">
+            Mallow
+        </div>
+        <h1>Новый аккаунт</h1>
+        <form id="register-form"> 
+            <div class="form">
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" placeholder="Имя" required>
+            </div>
+            <div class="form">
+                <label for="email">Эл. почта</label>
+                <input type="email" id="email" placeholder="hello@example.com" required>
+            </div>
+            <div class="form">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-pink">Зарегистрироваться</button>
+        </form>
+        <div class="links">
+            <a href="login.html">У меня уже есть аккаунт</a>
+        </div>
+    </div>
+    <script type="module" src="server/main.js"></script>
+</body>
+</html>

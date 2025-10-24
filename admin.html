@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Админ-панель | Mallow</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="ap">
     <header>
-        <a href="index.html" class="logo-link"><div class="logo">Mallow</div></a>
+        <a href="index.html" class="logo-link">
+            <div class="logo">Mallow</div>
+        </a>
         <h1>Админ-панель</h1>
     </header>
     <main class="admin-container">
@@ -32,7 +36,14 @@
                     <h3 id="product-form-title">Добавить новый товар</h3>
                     <input type="text" id="product-name" placeholder="Название товара" required>
                     <input type="number" id="product-price" placeholder="Цена" required>
-                    <input type="text" id="product-image" placeholder="URL картинки" required>
+                    <div>
+                        <label>Изображение товара:</label>
+                        <div class="file-upload-container">
+                            <label for="product-image-upload" id="upload-label" class="btn btn-outline">Выбрать файл</label>
+                            <input type="file" id="product-image-upload" accept="image/*" class="visually-hidden">
+                        </div>
+                        <input type="hidden" id="product-image">
+                    </div>
                     <textarea id="product-description" placeholder="Описание товара" required></textarea>
                     <h4>Детали</h4>
                     <input type="text" id="product-material" placeholder="Материал" required>
@@ -45,6 +56,8 @@
             </section>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="module" src="server/admin.js"></script>
 </body>
+
 </html>

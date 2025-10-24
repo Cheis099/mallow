@@ -1,3 +1,4 @@
+import { supabase } from './supabase.js';
 let allUsers = [];
 let allProducts = [];
 let currentlyEditingProductId = null;
@@ -62,7 +63,8 @@ async function loadData() {
     try {
         const response = await fetch('/api/data');
         if (!response.ok) {
-            throw new Error(`Ошибка от сервера: ${response.status}`); }
+            throw new Error(`Ошибка от сервера: ${response.status}`);
+        }
         const data = await response.json();
         allUsers = data.users;
         allProducts = data.products;
@@ -169,7 +171,7 @@ document.addEventListener('click', async (event) => {
             }
         }
     }
-        if (event.target.classList.contains('edit-user-btn')) {
+    if (event.target.classList.contains('edit-user-btn')) {
         const userIdToEdit = parseInt(event.target.dataset.id);
         const user = allUsers.find(u => u.id === userIdToEdit);
         if (user) {
@@ -222,6 +224,7 @@ function resetProductForm() {
     currentlyEditingProductId = null;
     productFormTitle.innerText = 'Добавить новый товар';
     productFormButton.innerText = 'Добавить товар';
+    document.getElementById('upload-label').textContent = 'Файл не выбран';
 }
 
 function resetUserForm() {
@@ -234,3 +237,37 @@ function resetUserForm() {
 }
 
 loadData();
+
+const imageUploader = document.getElementById('product-image-upload');
+const hiddenImageInput = document.getElementById('product-image');
+const uploadLabel = document.getElementById('upload-label');
+imageUploader.addEventListener('change', async (event) => {
+    const file = event.target.files[0];
+    if (!file) {
+        return;
+    }
+    const fileName = `${Date.now()}_${file.name}`;
+    const filePath = `${fileName}`;
+    try {
+        uploadLabel.textContent = 'Загрузка...';
+        imageUploader.disabled = true;
+        const { error } = await supabase.storage
+            .from('mallow')
+            .upload(filePath, file);
+        if (error) {
+            throw error;
+        }
+        const { data } = supabase.storage
+            .from('mallow')
+            .getPublicUrl(filePath);
+        hiddenImageInput.value = data.publicUrl;
+        uploadLabel.textContent = 'Загружено!';
+        console.log('Ссылка на изображение:', data.publicUrl);
+    } catch (error) {
+        console.error('Ошибка при загрузке файла:', error.message);
+        uploadLabel.textContent = 'Ошибка! Выбрать снова';
+    } finally {
+        imageUploader.disabled = false;
+        imageUploader.value = "";
+    }
+});

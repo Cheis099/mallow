@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная | Mallow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nunito+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="ph">
     <div class="magic">
-        <div class="dust"></div><div class="dust"></div><div class="dust"></div><div class="dust"></div><div class="dust"></div>
-        <div class="dust"></div><div class="dust"></div><div class="dust"></div><div class="dust"></div><div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
+        <div class="dust"></div>
     </div>
     <header>
         <a href="index.html" class="logo-link">
-             <div class="logo">Mallow</div>
+            <div class="logo">Mallow</div>
         </a>
         <nav>
             <a href="#" class="icon">
-                <img src="https://bfdsyleyhyeuvxkzrlck.supabase.co/storage/v1/object/public/mallow/heart.png" alt="Иконка избранного">
+                <img src="https://bfdsyleyhyeuvxkzrlck.supabase.co/storage/v1/object/public/mallow/heart.png"
+                    alt="Иконка избранного">
             </a>
             <a href="#" class="icon">
-                <img src="https://bfdsyleyhyeuvxkzrlck.supabase.co/storage/v1/object/public/mallow/cart.png" alt="Иконка корзины">
+                <img src="https://bfdsyleyhyeuvxkzrlck.supabase.co/storage/v1/object/public/mallow/cart.png"
+                    alt="Иконка корзины">
             </a>
-            <a href="#" class="icon">
-                <img src="https://bfdsyleyhyeuvxkzrlck.supabase.co/storage/v1/object/public/mallow/hamburger.png" alt="Иконка меню">
-            </a>
+            <div class="menu-container">
+                <a href="#" class="icon" id="menu-icon">
+                    <img src="https://bfdsyleyhyeuvxkzrlck.supabase.co/storage/v1/object/public/mallow/hamburger.png"
+                        alt="Иконка меню">
+                </a>
+                <ul class="dropdown-menu" id="dropdown-menu">
+                </ul>
+            </div>
         </nav>
     </header>
     <main>
@@ -40,7 +59,7 @@
             <div class="hero-story">
                 <h3>Сделано с любовью, в маленькой мастерской</h3>
                 <p>
-                    Привет! Mallow — это моя история о поиске красоты в простых вещах. Каждая кружка создается вручную, 
+                    Привет! Mallow — это моя история о поиске красоты в простых вещах. Каждая кружка создается вручную,
                     храня в себе частичку тепла и несовершенства, которые делают ее по-настоящему живой.
                 </p>
             </div>
@@ -68,4 +87,5 @@
     </footer>
 </body>
 <script type="module" src="server/main.js"></script>
+
 </html>

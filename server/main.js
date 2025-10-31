@@ -2,25 +2,48 @@ import { validateForm } from './validation.js';
 import { loginUser, registerUser, getCurrentUser, logoutUser } from './auth.js';
 import { renderProductList } from './products.js';
 
-if (document.querySelector('.container')) {
-    const form = document.querySelector('form');
-    const emailInput = document.querySelector('#email');
-    const passwordInput = document.querySelector('#password');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const { isValid, emailError, passwordError } = validateForm(emailInput.value, passwordInput.value);
-      if (!isValid) {
-        alert(`${emailError || ''} ${passwordError || ''}`);
-        return;
-      }
-      const result = await loginUser(emailInput.value, passwordInput.value);
-      if (result.success) {
-        window.location.href = 'index.html';
-      } else {
-        alert(result.error);
-      }
+const loginForm = document.getElementById('login-form');
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const { isValid, emailError, passwordError } = validateForm(emailInput.value, passwordInput.value);
+        if (!isValid) {
+            alert(`${emailError || ''} ${passwordError || ''}`);
+            return;
+        }
+        const result = await loginUser(emailInput.value, passwordInput.value);
+        if (result.success) {
+            localStorage.setItem('currentUser', JSON.stringify(result.user));
+            window.location.href = 'index.html';
+        } else {
+            alert(result.error);
+        }
     });
-  }
+}
+
+const registerForm = document.getElementById('register-form');
+if (registerForm) {
+    registerForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const { isValid, emailError, passwordError } = validateForm(emailInput.value, passwordInput.value);
+        if (!isValid) {
+            alert(`${emailError || ''} ${passwordError || ''}`);
+            return;
+        }
+        const result = await registerUser(emailInput.value, passwordInput.value, nameInput.value); 
+        if (result.success) {
+            localStorage.setItem('currentUser', JSON.stringify(result.user));
+            window.location.href = 'index.html';
+        } else {
+            alert(result.error);
+        }
+    });
+}
 
   if (document.querySelector('.cards')) {
     const container = document.querySelector('.cards');
@@ -62,3 +85,50 @@ if (document.querySelector('.container')) {
       }
     })();
   }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.getElementById('menu-icon');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    if (!menuIcon) return;
+    const currentUser = getCurrentUser();
+    if (currentUser) {
+        if (currentUser.role === 'admin') {
+            dropdownMenu.innerHTML = `
+                <li><a href="/admin.html">Админка</a></li>
+                <li><a href="#" id="logout-btn">Выйти</a></li>
+            `;
+        } else {
+            dropdownMenu.innerHTML = `
+                <li><a href="#" id="logout-btn">Выйти</a></li>
+            `;
+        }
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                logoutUser();
+                window.location.href = '/login.html';
+            });
+        }
+    } else {
+        dropdownMenu.innerHTML = `
+            <li><a href="/login.html" id="login-btn">Войти</a></li>
+        `;
+    }
+    menuIcon.addEventListener('click', (event) => {
+        event.preventDefault();
+        dropdownMenu.classList.toggle('show');
+    });
+});
+
+window.onclick = function(event) {
+    if (!event.target.closest('.menu-container')) {
+        const dropdowns = document.getElementsByClassName("dropdown-menu");
+        for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}

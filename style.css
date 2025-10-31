@@ -500,6 +500,7 @@ body.pl {
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    min-width: 0;
 }
 
 .admin-column h2 {
@@ -639,6 +640,7 @@ body.ap header h1 {
 .file-upload-container {
     display: flex;
     align-items: center;
+    position: relative;
 }
 #upload-label {
     display: inline-block;
@@ -654,4 +656,82 @@ body.ap header h1 {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    color: #4D4945;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #F5F1EB;
+}
+
+body.error-page {
+    padding-top: 0;
+}
+
+.error-page .error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.error-page .logo {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.error-page h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 8em;
+    color: #A17C6B;
+    margin: 0;
+    line-height: 1;
+}
+
+.error-page p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.error-page .btn {
+    max-width: 300px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }

@@ -11,7 +11,7 @@ node server.mjs
 
 ## Доступные страницы
 
-- Главная страница: [http://localhost:3000/index.html](http://localhost:3000/index.html)
-- Страница входа: [http://localhost:3000/login.html](http://localhost:3000/login.html)
-- Страница регистрации: [http://localhost:3000/register.html](http://localhost:3000/register.html)
-- Админ-панель: [http://localhost:3000/admin.html](http://localhost:3000/admin.html)
+- Главная страница: http://localhost:3000/index.html
+- Страница входа: http://localhost:3000/login.html
+- Страница регистрации: http://localhost:3000/register.html
+- Админ-панель: http://localhost:3000/admin.html

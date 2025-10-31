@@ -4,14 +4,16 @@
 <head>
     <title>Админ-панель | Mallow</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="server/admin-guard.js"></script>
 </head>
 
 <body class="ap">
     <header>
-        <a href="index.html" class="logo-link">
-            <div class="logo">Mallow</div>
-        </a>
-        <h1>Админ-панель</h1>
+        <div class="menu-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo">Mallow</div>
+            </a>
+            <h1>Админ-панель</h1>
     </header>
     <main class="admin-container">
         <div class="admin-layout">
@@ -21,7 +23,11 @@
                     <h3 id="user-form-title">Добавить пользователя</h3>
                     <input type="text" id="user-name" placeholder="Имя" required>
                     <input type="email" id="user-email" placeholder="Email" required>
-                    <input type="text" id="user-role" placeholder="Роль (user или admin)" required>
+                    <label for="user-role">Роль:</label>
+                    <select id="user-role" required>
+                        <option value="user">Пользователь (user)</option>
+                        <option value="admin">Администратор (admin)</option>
+                    </select>
                     <div id="password-field-container">
                         <input type="password" id="user-password" placeholder="Пароль" required>
                     </div>
@@ -39,7 +45,8 @@
                     <div>
                         <label>Изображение товара:</label>
                         <div class="file-upload-container">
-                            <label for="product-image-upload" id="upload-label" class="btn btn-outline">Выбрать файл</label>
+                            <label for="product-image-upload" id="upload-label" class="btn btn-outline">Выбрать
+                                файл</label>
                             <input type="file" id="product-image-upload" accept="image/*" class="visually-hidden">
                         </div>
                         <input type="hidden" id="product-image">

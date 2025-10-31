@@ -208,12 +208,13 @@ document.addEventListener('click', async (event) => {
             document.getElementById('product-name').value = product.name;
             document.getElementById('product-price').value = product.price;
             document.getElementById('product-image').value = product.image;
+            document.getElementById('upload-label').textContent = 'Заменить изображение';
             document.getElementById('product-description').value = product.description;
             document.getElementById('product-material').value = product.details.material;
             document.getElementById('product-volume').value = product.details.volume;
             document.getElementById('product-care').value = product.details.care;
             currentlyEditingProductId = product.id;
-            productFormTitle.innerText = `Редактирование: ${product.name}`;
+            productFormTitle.innerText = `Редактирование: ${ product.name }`;
             productFormButton.innerText = 'Сохранить изменения';
         }
     }

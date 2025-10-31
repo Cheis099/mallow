@@ -161,6 +161,10 @@ app.put('/api/users/:id', (req, res) => {
     });
 });
 
+app.use((req, res, next) => {
+    res.status(404).sendFile(path.join(__dirname, '404.html'));
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
